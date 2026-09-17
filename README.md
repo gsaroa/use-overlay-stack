@@ -177,12 +177,15 @@ interface AlertDialogOptions {
 ## FAQ
 
 **Does this depend on shadcn/ui or Radix?**
+
 No. The provider takes your components as props and only assumes they accept `open`/`onOpenChange`. It works with any overlay primitive that follows that (very common) contract.
 
 **Can I open two sheets at once?**
+
 No — that's the point. One sheet slot means one sheet, ever. If a second feature calls `setSheet(...)` while one is open, it replaces the first. This is almost always what you want; if it isn't, this library isn't the right fit for that screen.
 
 **What about Next.js Server Components?**
+
 `OverlayStackProvider` and `useOverlayStack` are client-side (the provider file is marked `'use client'`). Mount the provider in a client component near your root layout, same as any other context provider.
 
 ## License
