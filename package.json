@@ -1,0 +1,72 @@
+{
+  "name": "use-overlay-stack",
+  "version": "0.1.0",
+  "description": "One Sheet. One Dialog. One AlertDialog. Open any of them from anywhere in your React app without prop-drilling state or fighting nested z-index.",
+  "keywords": [
+    "react",
+    "overlay",
+    "dialog",
+    "modal",
+    "sheet",
+    "alert-dialog",
+    "shadcn",
+    "radix",
+    "hook",
+    "singleton",
+    "provider"
+  ],
+  "license": "MIT",
+  "author": "GRIVITY <dev@grivity.com.au>",
+  "homepage": "https://github.com/grivity/use-overlay-stack#readme",
+  "bugs": "https://github.com/grivity/use-overlay-stack/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grivity/use-overlay-stack.git"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "prepublishOnly": "pnpm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "jsdom": "^25.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "packageManager": "pnpm@10.0.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@biomejs/biome", "esbuild"]
+  }
+}
