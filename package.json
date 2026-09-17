@@ -16,12 +16,12 @@
     "provider"
   ],
   "license": "MIT",
-  "author": "GRIVITY <dev@grivity.com.au>",
-  "homepage": "https://github.com/grivity/use-overlay-stack#readme",
-  "bugs": "https://github.com/grivity/use-overlay-stack/issues",
+  "author": "Gurdeep Saroa",
+  "homepage": "https://github.com/gsaroa/use-overlay-stack#readme",
+  "bugs": "https://github.com/gsaroa/use-overlay-stack/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grivity/use-overlay-stack.git"
+    "url": "git+https://github.com/gsaroa/use-overlay-stack.git"
   },
   "type": "module",
   "main": "./dist/index.cjs",

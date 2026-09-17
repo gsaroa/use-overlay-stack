@@ -187,4 +187,4 @@ No — that's the point. One sheet slot means one sheet, ever. If a second featu
 
 ## License
 
-MIT © [GRIVITY](https://www.grivity.co)
+MIT © [Gurdeep Saroa](https://github.com/gsaroa)
