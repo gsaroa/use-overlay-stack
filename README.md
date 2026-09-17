@@ -1,5 +1,9 @@
 # use-overlay-stack
 
+[![CI](https://github.com/gsaroa/use-overlay-stack/actions/workflows/ci.yml/badge.svg)](https://github.com/gsaroa/use-overlay-stack/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/use-overlay-stack.svg)](https://www.npmjs.com/package/use-overlay-stack)
+[![MIT license](https://img.shields.io/npm/l/use-overlay-stack.svg)](./LICENSE)
+
 **One Sheet. One Dialog. One AlertDialog.** Open any of them from anywhere in your React app — no prop-drilling `open` state through five components, no two features both rendering a `<Dialog>` and fighting over z-index.
 
 ```tsx
@@ -71,6 +75,20 @@ No local state, no JSX for the overlay itself sitting next to the trigger, and i
 ## Why three fixed slots, not an arbitrary stack
 
 It's tempting to build a fully generic `push()`/`pop()` overlay stack that can nest any number of any kind of overlay. In practice almost every app needs exactly this: **one sheet, one dialog, one confirm/alert dialog**, and occasionally two of those open at once (e.g. a confirm alert on top of a dialog). Three independent slots give you that combination for free, with an API small enough to hold in your head — and no risk of an accidental infinite stack of nested modals. If you outgrow this, you've outgrown this library; that's fine.
+
+## vs. nice-modal-react
+
+[`@ebay/nice-modal-react`](https://github.com/eBay/nice-modal-react) solves a similar problem — a singleton provider you control imperatively from anywhere — and is the more general tool: it supports an arbitrary number of named, stackable modals and a promise-based `show()`/`hide()` API. If you need that generality, use it.
+
+`use-overlay-stack` trades that generality for less ceremony in the common case:
+
+| | `use-overlay-stack` | `nice-modal-react` |
+|---|---|---|
+| Registration | None — pass JSX directly to `setDialog(<Foo/>)` | Each modal wrapped with `NiceModal.create()` and shown by string ID |
+| Slots | Fixed: one sheet, one dialog, one alert dialog | Arbitrary, unbounded stack |
+| Confirm/alert dialogs | First-class `AlertDialogOptions` shape | Build your own convention on top |
+
+If your app mostly needs "show this one dialog" and "confirm this one destructive action" — not five modals stacked on each other — the fixed-slot model means less API surface to learn and no ID bookkeeping.
 
 ## Install
 
@@ -173,6 +191,8 @@ interface AlertDialogOptions {
   onCancel?: () => void
 }
 ```
+
+`onCancel` is **not** wired automatically — the provider only tracks `open`/`onOpenChange`, it has no way to know *why* your AlertDialog primitive closed. Call it yourself from wherever your adapter's Cancel action lives, as [`examples/shadcn-adapter.tsx`](./examples/shadcn-adapter.tsx) does. If your primitive also closes on Escape or an outside click (Radix does, by default, on Escape), those dismissals won't call `onCancel` unless you wire that path too — and if you do, make sure your Confirm button's own dismiss doesn't also trigger it, since most primitives close on *any* action click, not just Cancel.
 
 ## FAQ
 
