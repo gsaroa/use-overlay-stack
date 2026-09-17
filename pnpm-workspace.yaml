@@ -7,4 +7,3 @@ onlyBuiltDependencies:
 
 overrides:
   rolldown: 1.2.8
-  rollup-plugin-dts: ^6.5.1
