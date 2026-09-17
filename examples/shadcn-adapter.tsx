@@ -5,6 +5,7 @@
 // shadcn/ui's own `Sheet` and `Dialog` already accept `open`/`onOpenChange`
 // as-is, so they need no adapter — pass them to the provider directly.
 
+import type { AlertDialogComponent } from 'use-overlay-stack'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,7 +16,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
-import type { AlertDialogComponent } from 'use-overlay-stack'
 
 export const AppAlertDialog: AlertDialogComponent = ({
   open,

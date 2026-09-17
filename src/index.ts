@@ -1,5 +1,4 @@
 export { OverlayStackProvider } from './overlay-stack-provider'
-export { useOverlayStack } from './use-overlay-stack'
 export type {
   AlertDialogComponent,
   AlertDialogOptions,
@@ -9,3 +8,4 @@ export type {
   OverlayStackProviderProps,
   SheetComponent,
 } from './types'
+export { useOverlayStack } from './use-overlay-stack'
